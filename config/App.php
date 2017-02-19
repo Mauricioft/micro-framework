@@ -6,7 +6,7 @@
 class App
 {
 		
-	protected $controller = 'HomeController';
+	protected $controller = 'MainController';
 	protected $method = 'actionIndex';
 	protected $params = [];
 
