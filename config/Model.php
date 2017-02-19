@@ -8,10 +8,9 @@ class Model
 	public static function find($id)
 	{
 		$model = new static();
-
-		$sql = 'select * from '.$model->table.' where '.$model->primaryKey.' = :id;';
+		$sql = sprintf('select * from public.%s where  %s = :id;', $model->table, $model->primaryKey);
 		$params = ['id' => $id];
-		$result = Database::query($sql, $params);
+		$result = Database::query($sql, 0, $params);
 
 		foreach ($result as $key => $value) {
 			$model->$key = $value;
